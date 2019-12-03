@@ -26,10 +26,10 @@ def get_distance():
 
 	while gpio.input(ECHO) == 0:
 		pulse_start = time.time()
-		
+
 	while gpio.input(ECHO) == 1:
 		pulse_end = time.time()
-		
+
 	pulse_duration = pulse_end - pulse_start
 
 	distance = pulse_duration * 17150
@@ -40,20 +40,20 @@ def get_distance():
 	gpio.cleanup()
 	return distance
 
-def object_in_range():
+def object_in_range(min_distance, max_distance):
 	car_in_range = False
 	distance = get_distance()
-	if distance > min_distance_cm and distance < max_distance_cm:
+	if distance > min_distance_ and distance < max_distance:
 		car_in_range = True
 	else:
 		car_in_range = False
-	
+
 	if car_in_range == True:
 		print("Car is detected")
 	else:
 		print("Car not present")
 
-def main():
-	object_in_range()
-	
-main()
+# def main():
+# 	object_in_range()
+#
+# main()
