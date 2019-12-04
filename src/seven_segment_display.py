@@ -33,3 +33,8 @@ def update_sev_seg():
             seven_segment.eight()
         elif num_free_spots = 9:
             seven_segment.nine()
+
+def main():
+    update_sev_seg()
+    
+main()

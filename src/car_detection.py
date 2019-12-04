@@ -36,3 +36,8 @@ def detect_car():
             in_range_count += 1
         elif in_range_count == False:
             in_range_count -= 1
+
+def main():
+    detect_car()
+
+main()

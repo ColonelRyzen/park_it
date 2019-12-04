@@ -36,6 +36,11 @@ def update_led_status():
             spot_data["led_color"] = "green"
             database_comms.set_document_data(config.spot_database_name, config.spot_num, spot_data)
 
+def main():
+    update_led_status()
+
+main()
+
 # def set_led_color():
 #     while True:
 #         spot_data = database_comms.get_document_data(config.spot_database_name, config.spot_num)
