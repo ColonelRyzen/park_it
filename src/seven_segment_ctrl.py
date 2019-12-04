@@ -10,7 +10,7 @@ fPin = config.sev_seg_f_pin
 gPin = config.sev_seg_g_pin
 
 def turnOn(pin):
-	gpio.setmode(gpio.BOARD)
+	gpio.setmode(gpio.BCM)
 	gpio.setup(pin, gpio.OUT)
 	gpio.output(pin, gpio.HIGH)
 
@@ -61,13 +61,22 @@ def gOn():
 def gOff():
 	turnOff(gPin)
 
-def zero():
+def allOff():
 	aOff()
 	bOff()
 	cOff()
 	dOff()
 	eOff()
 	fOff()
+	gOff()
+
+def zero():
+	aOn()
+	bOn()
+	cOn()
+	dOn()
+	eOn()
+	fOn()
 	gOff()
 
 def one():
@@ -130,69 +139,69 @@ def nine():
 	fOn()
 	cOn()
 
-def main():
-	while True:
-		cmd = input("-->")
-
-		if cmd == "a on":
-			aOn()
-		elif cmd == "a off":
-			aOff()
-		elif cmd == "b on":
-			bOn()
-		elif cmd == "b off":
-			bOff()
-		elif cmd == "c on":
-			cOn()
-		elif cmd == "c off":
-			cOff()
-		elif cmd == "d on":
-			dOn()
-		elif cmd == "d off":
-			dOff()
-		elif cmd == "e on":
-			eOn()
-		elif cmd == "e off":
-			eOff()
-		elif cmd == "f on":
-			fOn()
-		elif cmd == "f off":
-			fOff()
-		elif cmd == "g on":
-			gOn()
-		elif cmd == "g off":
-			gOff()
-		elif cmd == "zero":
-			zero()
-		elif cmd == "one":
-			zero()
-			one()
-		elif cmd == "two":
-			zero()
-			two()
-		elif cmd == "three":
-			zero()
-			three()
-		elif cmd == "four":
-			zero()
-			four()
-		elif cmd == "five":
-			zero()
-			five()
-		elif cmd == "six":
-			zero()
-			six()
-		elif cmd == "seven":
-			zero()
-			seven()
-		elif cmd == "eight":
-			zero()
-			eight()
-		elif cmd == "nine":
-			zero()
-			nine()
-		else:
-			print("Not a valid input")
-
-	return
-main()
+# def main():
+# 	while True:
+# 		cmd = input("-->")
+#
+# 		if cmd == "a on":
+# 			aOn()
+# 		elif cmd == "a off":
+# 			aOff()
+# 		elif cmd == "b on":
+# 			bOn()
+# 		elif cmd == "b off":
+# 			bOff()
+# 		elif cmd == "c on":
+# 			cOn()
+# 		elif cmd == "c off":
+# 			cOff()
+# 		elif cmd == "d on":
+# 			dOn()
+# 		elif cmd == "d off":
+# 			dOff()
+# 		elif cmd == "e on":
+# 			eOn()
+# 		elif cmd == "e off":
+# 			eOff()
+# 		elif cmd == "f on":
+# 			fOn()
+# 		elif cmd == "f off":
+# 			fOff()
+# 		elif cmd == "g on":
+# 			gOn()
+# 		elif cmd == "g off":
+# 			gOff()
+# 		elif cmd == "zero":
+# 			zero()
+# 		elif cmd == "one":
+# 			zero()
+# 			one()
+# 		elif cmd == "two":
+# 			zero()
+# 			two()
+# 		elif cmd == "three":
+# 			zero()
+# 			three()
+# 		elif cmd == "four":
+# 			zero()
+# 			four()
+# 		elif cmd == "five":
+# 			zero()
+# 			five()
+# 		elif cmd == "six":
+# 			zero()
+# 			six()
+# 		elif cmd == "seven":
+# 			zero()
+# 			seven()
+# 		elif cmd == "eight":
+# 			zero()
+# 			eight()
+# 		elif cmd == "nine":
+# 			zero()
+# 			nine()
+# 		else:
+# 			print("Not a valid input")
+#
+# 	return
+# main()
