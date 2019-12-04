@@ -53,7 +53,7 @@ def object_in_range(min_distance, max_distance):
 	else:
 		print("Car not present")
 
-# def main():
-# 	object_in_range()
-#
-# main()
+def main():
+	object_in_range()
+
+main()

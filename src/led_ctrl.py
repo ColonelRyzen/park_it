@@ -60,32 +60,32 @@ def whiteOff():
 	turnOff(bluePin)
 	gpio.cleanup()
 
-# def main():
-# 	while True:
-# 		cmd = input("-->")
-#
-# 		if cmd == "red on":
-# 			redOn()
-# 		elif cmd == "red off":
-# 			redOff()
-# 		elif cmd == "green on":
-# 			greenOn()
-# 		elif cmd == "green off":
-# 			greenOff()
-# 		elif cmd == "yellow on":
-# 			yellowOn()
-# 		elif cmd == "yellow off":
-# 			yellowOff()
-# 		elif cmd == "blue on":
-# 			blueOn()
-# 		elif cmd == "blue off":
-# 			blueOff()
-# 		elif cmd == "white on":
-# 			whiteOn()
-# 		elif cmd == "white off":
-# 			whiteOff()
-# 		else:
-# 			print("Not a valid input")
-#
-# 	return
-# main()
+def main():
+	while True:
+		cmd = input("-->")
+
+		if cmd == "red on":
+			redOn()
+		elif cmd == "red off":
+			redOff()
+		elif cmd == "green on":
+			greenOn()
+		elif cmd == "green off":
+			greenOff()
+		elif cmd == "yellow on":
+			yellowOn()
+		elif cmd == "yellow off":
+			yellowOff()
+		elif cmd == "blue on":
+			blueOn()
+		elif cmd == "blue off":
+			blueOff()
+		elif cmd == "white on":
+			whiteOn()
+		elif cmd == "white off":
+			whiteOff()
+		else:
+			print("Not a valid input")
+
+	return
+main()
