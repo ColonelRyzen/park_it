@@ -1,8 +1,9 @@
 import RPi.GPIO as gpio
+import config
 
-redPin = 3
-greenPin = 15
-bluePin = 21
+redPin = config.led_red_pin
+greenPin = config.led_green_pin
+bluePin = config.led_blue_pin
 
 def turnOn(pin):
 	gpio.setmode(gpio.BOARD)
