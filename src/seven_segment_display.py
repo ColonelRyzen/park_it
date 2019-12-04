@@ -1,5 +1,5 @@
 import config
-import seven_segment
+import seven_segment_ctrl
 import database_comms
 import time
 
@@ -10,24 +10,25 @@ def update_sev_seg():
         time.sleep(2)
 
         num_free_spots = lot_data["num_free_spots"]
-        if num_free_spots = 0:
+        print("num_free_spots: ", num_free_spots)
+        if num_free_spots == 0:
             seven_segment.zero()
-        elif num_free_spots = 1:
+        elif num_free_spots == 1:
             seven_segment.one()
-        elif num_free_spots = 2:
+        elif num_free_spots == 2:
             seven_segment.two()
-        elif num_free_spots = 3:
+        elif num_free_spots == 3:
             seven_segment.three()
-        elif num_free_spots = 4:
+        elif num_free_spots == 4:
             seven_segment.four()
-        elif num_free_spots = 5:
+        elif num_free_spots == 5:
             seven_segment.five()
-        elif num_free_spots = 6:
+        elif num_free_spots == 6:
             seven_segment.six()
-        elif num_free_spots = 7:
+        elif num_free_spots == 7:
             seven_segment.seven()
-        elif num_free_spots = 8:
+        elif num_free_spots == 8:
             seven_segment.eight()
-        elif num_free_spots = 9:
+        elif num_free_spots == 9:
             seven_segment.nine()
             

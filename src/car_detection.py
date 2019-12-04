@@ -34,5 +34,5 @@ def detect_car():
                 database_comms.set_document_data(config.lot_database_name, config.lot_id, lot_data)
         if in_range_bool == True and in_range_count < config.car_detection_threshold:
             in_range_count += 1
-        elif in_range_count = False:
+        elif in_range_count == False:
             in_range_count -= 1

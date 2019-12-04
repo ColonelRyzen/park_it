@@ -4,7 +4,7 @@ import database_comms
 import car_detection
 import led_spot_status_display
 import seven_segment_display
-from multiprocessing import Process`
+from multiprocessing import Process
 
 
 if __name__ == '__main__':
