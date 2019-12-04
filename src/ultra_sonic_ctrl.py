@@ -1,12 +1,13 @@
 import RPi.GPIO as gpio
 import time
+import config
 
 gpio.setmode(gpio.BOARD)
 
-TRIG = 16
-ECHO = 18
-max_distance_cm = 95
-min_distance_cm = 70
+TRIG = config.ultra_sonic_trig
+ECHO = config.ultra_sonic_echo
+max_distance_cm = config.max_distance_cm
+min_distance_cm = config.min_distance_cm
 
 def get_distance():
 	print("Distance Measurement In Progress")
@@ -54,6 +55,6 @@ def object_in_range(min_distance, max_distance):
 		print("Car not present")
 
 def main():
-	object_in_range()
+	object_in_range(min_distance_cm, max_distance_cm)
 
 main()
