@@ -7,7 +7,7 @@ def update_led_status():
     led_color = "white"
     while True:
         # Get status of spot and set led color accordingly
-        spot_data = database_comms.get_document_data(config.spot_database_name, config.spot_num)
+        spot_data = database_comms.get_document_data(config.spot_num)
         time.sleep(2)
 
         led_color = spot_data["led_color"]
@@ -28,13 +28,13 @@ def update_led_status():
         reservation_status = spot_data["reserved"]
         if reserved_status == True and spot_status == False:
             spot_data["led_color"] = "yellow"
-            database_comms.set_document_data(config.spot_database_name, config.spot_num, spot_data)
+            database_comms.set_document_data(config.spot_num, spot_data)
         elif reserved_status == False and spot_status == True:
             spot_data["led_color"] = "red"
-            database_comms.set_document_data(config.spot_database_name, config.spot_num, spot_data)
+            database_comms.set_document_data(config.spot_num, spot_data)
         else:
             spot_data["led_color"] = "green"
-            database_comms.set_document_data(config.spot_database_name, config.spot_num, spot_data)
+            database_comms.set_document_data(config.spot_num, spot_data)
 
 def main():
     update_led_status()

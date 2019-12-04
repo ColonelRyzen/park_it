@@ -6,7 +6,7 @@ import time
 def update_sev_seg():
     sev_seg_value = config.max_num_spots
     while True:
-        spot_data = database_comms.get_document_data(config.spot_database_name, config.lot_id)
+        spot_data = database_comms.get_document_data(config.lot_id)
         time.sleep(2)
 
         print(lot_data)
