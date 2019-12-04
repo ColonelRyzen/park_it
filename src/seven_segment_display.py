@@ -6,13 +6,13 @@ import time
 def update_sev_seg():
     sev_seg_value = config.max_num_spots
     while True:
-        spot_data = database_comms.get_document_data(config.lot_id)
+        spot_data = database_comms.get_document_data(config.num_free_spots)
         time.sleep(2)
 
-        print(lot_data)
+        print(spot_data)
 
         print("num_free_spots: ", spot_data["num_free_spots"])
-        num_free_spots = lot_data["num_free_spots"]
+        num_free_spots = spot_data["num_free_spots"]
         if num_free_spots == 0:
             seven_segment.zero()
         elif num_free_spots == 1:
