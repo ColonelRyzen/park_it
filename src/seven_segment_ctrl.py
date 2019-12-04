@@ -1,65 +1,66 @@
 import RPi.GPIO as gpio
+import config
 
-aPin = 3 
-bPin = 7
-cPin = 11
-dPin = 15
-ePin = 24
-fPin = 31
-gPin = 35
+aPin = config.sev_seg_a_pin
+bPin = config.sev_seg_b_pin
+cPin = config.sev_seg_c_pin
+dPin = config.sev_seg_d_pin
+ePin = config.sev_seg_e_pin
+fPin = config.sev_seg_f_pin
+gPin = config.sev_seg_g_pin
 
 def turnOn(pin):
 	gpio.setmode(gpio.BOARD)
 	gpio.setup(pin, gpio.OUT)
 	gpio.output(pin, gpio.HIGH)
-	
+
 def turnOff(pin):
 	gpio.setmode(gpio.BOARD)
 	gpio.setup(pin, gpio.OUT)
 	gpio.output(pin, gpio.LOW)
-	
+
 def aOn():
 	turnOn(aPin)
-	
+
 def aOff():
 	turnOff(aPin)
-	
+
 def bOn():
 	turnOn(bPin)
-	
+
 def bOff():
 	turnOff(bPin)
-	
+
 def cOn():
 	turnOn(cPin)
-	
+
 def cOff():
 	turnOff(cPin)
 
 def dOn():
 	turnOn(dPin)
-	
+
 def dOff():
 	turnOff(dPin)
-	
+
 def eOn():
 	turnOn(ePin)
-	
+
 def eOff():
 	turnOff(ePin)
-	
+
 def fOn():
 	turnOn(fPin)
-	
+
 def fOff():
 	turnOff(fPin)
-	
+
 def gOn():
 	turnOn(gPin)
-	
+
 def gOff():
 	turnOff(gPin)
-	
+
 def zero():
 	aOff()
 	bOff()
@@ -86,20 +87,20 @@ def three():
 	gOn()
 	cOn()
 	dOn()
-	
+
 def four():
 	bOn()
 	fOn()
 	gOn()
 	cOn()
-	
+
 def five():
 	aOn()
 	fOn()
 	gOn()
 	cOn()
 	dOn()
-	
+
 def six():
 	aOn()
 	fOn()
@@ -107,12 +108,12 @@ def six():
 	gOn()
 	cOn()
 	dOn()
-	
+
 def seven():
 	aOn()
 	bOn()
 	cOn()
-	
+
 def eight():
 	aOn()
 	bOn()
@@ -128,11 +129,11 @@ def nine():
 	gOn()
 	fOn()
 	cOn()
-	
+
 def main():
 	while True:
 		cmd = input("-->")
-		
+
 		if cmd == "a on":
 			aOn()
 		elif cmd == "a off":
@@ -192,7 +193,6 @@ def main():
 			nine()
 		else:
 			print("Not a valid input")
-			
+
 	return
 main()
-

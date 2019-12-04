@@ -1,21 +1,21 @@
 # HW pinouts
 ## RGB LED pins
 led_red_pin = 3
-led_green_pin = 15
-led_blue_pin = 21
+led_green_pin = 5
+led_blue_pin = 7
 
 ## Ultra Sonic Pins
 ultra_sonic_trig = 16
 ultra_sonic_echo = 18
 
 ## Seven Segment pins
-sev_seg_a_pin = 3
-sev_seg_b_pin = 7
-sev_seg_c_pin = 11
-sev_seg_d_pin = 15
-sev_seg_e_pin = 24
-sev_seg_f_pin = 31
-sev_seg_g_pin = 35
+sev_seg_a_pin = 11
+sev_seg_b_pin = 13
+sev_seg_c_pin = 15
+sev_seg_d_pin = 19
+sev_seg_e_pin = 21
+sev_seg_f_pin = 23
+sev_seg_g_pin = 27
 
 #Car Detection Settings
 min_distance_cm = 91
