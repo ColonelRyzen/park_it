@@ -27,7 +27,7 @@ num_spots_in_lot = 2
 # spot Database config
 spot_database_name = "test_lot_0"
 credentials_path = "parkit-zachandfaz-firebase-adminsdk-30ltr-452668633e.json"
-spot_num = 0
+spot_num = "0"
 
 # Lots database config
 lot_database_name = "lots"

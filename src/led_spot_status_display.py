@@ -11,6 +11,7 @@ def update_led_status():
         time.sleep(2)
 
         led_color = spot_data["led_color"]
+        print(led_color)
         if led_color == "white":
             led_ctrl.whiteOff()
             led_ctrl.whiteOn()
@@ -26,10 +27,10 @@ def update_led_status():
 
         spot_status = spot_data["taken"]
         reservation_status = spot_data["reserved"]
-        if reserved_status == True and spot_status == False:
+        if reservation_status == True and spot_status == False:
             spot_data["led_color"] = "yellow"
             database_comms.set_document_data(config.spot_num, spot_data)
-        elif reserved_status == False and spot_status == True:
+        elif reservation_status == False and spot_status == True:
             spot_data["led_color"] = "red"
             database_comms.set_document_data(config.spot_num, spot_data)
         else:
