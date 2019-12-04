@@ -1,6 +1,8 @@
 import RPi.GPIO as gpio
 import config
 
+gpio.setwarnings(False)
+
 aPin = config.sev_seg_a_pin
 bPin = config.sev_seg_b_pin
 cPin = config.sev_seg_c_pin
@@ -15,7 +17,7 @@ def turnOn(pin):
 	gpio.output(pin, gpio.HIGH)
 
 def turnOff(pin):
-	gpio.setmode(gpio.BOARD)
+	gpio.setmode(gpio.BCM)
 	gpio.setup(pin, gpio.OUT)
 	gpio.output(pin, gpio.LOW)
 

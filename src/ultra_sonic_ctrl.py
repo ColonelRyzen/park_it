@@ -2,6 +2,8 @@ import RPi.GPIO as gpio
 import time
 import config
 
+gpio.setwarnings(False)
+
 gpio.setmode(gpio.BOARD)
 
 TRIG = config.ultra_sonic_trig
@@ -10,51 +12,53 @@ max_distance_cm = config.max_distance_cm
 min_distance_cm = config.min_distance_cm
 
 def get_distance():
-	print("Distance Measurement In Progress")
+        gpio.setmode(gpio.BOARD)
 
-	gpio.setup(TRIG, gpio.OUT)
-	gpio.setup(ECHO, gpio.IN)
+        print("Distance Measurement In Progress")
 
-	gpio.output(TRIG, False)
+        gpio.setup(TRIG, gpio.OUT)
+        gpio.setup(ECHO, gpio.IN)
 
-	print("Waiting For Sensor To Settle")
+        gpio.output(TRIG, False)
 
-	time.sleep(2)
+        print("Waiting For Sensor To Settle")
 
-	gpio.output(TRIG, True)
-	time.sleep(0.00001)
-	gpio.output(TRIG, False)
+        time.sleep(2)
 
-	while gpio.input(ECHO) == 0:
-		pulse_start = time.time()
+        gpio.output(TRIG, True)
+        time.sleep(0.00001)
+        gpio.output(TRIG, False)
 
-	while gpio.input(ECHO) == 1:
-		pulse_end = time.time()
+        while gpio.input(ECHO) == 0:
+                pulse_start = time.time()
 
-	pulse_duration = pulse_end - pulse_start
+        while gpio.input(ECHO) == 1:
+                pulse_end = time.time()
 
-	distance = pulse_duration * 17150
+        pulse_duration = pulse_end - pulse_start
 
-	distance = round(distance, 2)
-	print("Distance: ", distance, "cm")
+        distance = pulse_duration * 17150
 
-	gpio.cleanup()
-	return distance
+        distance = round(distance, 2)
+        print("Distance: ", distance, "cm")
+
+        return distance
 
 def object_in_range(min_distance, max_distance):
-	car_in_range = False
-	distance = get_distance()
-	if distance > min_distance_ and distance < max_distance:
-		car_in_range = True
-	else:
-		car_in_range = False
+        car_in_range = False
+        distance = get_distance()
+        if distance > min_distance and distance < max_distance:
+	        car_in_range = True
+        else:
+                car_in_range = False
 
-	if car_in_range == True:
-		print("Car is detected")
-	else:
-		print("Car not present")
+        if car_in_range == True:
+                print("Car is detected")
+        else:
+	        print("Car not present")
+        return(car_in_range)
 
-def main():
-	object_in_range(min_distance_cm, max_distance_cm)
+#def main():
+#	object_in_range(min_distance_cm, max_distance_cm)
 
-main()
+#main()

@@ -1,6 +1,8 @@
 import RPi.GPIO as gpio
 import config
 
+gpio.setwarnings(False)
+
 redPin = config.led_red_pin
 greenPin = config.led_green_pin
 bluePin = config.led_blue_pin
@@ -17,49 +19,39 @@ def turnOff(pin):
 
 def redOn():
 	turnOn(redPin)
-	gpio.cleanup()
 
 def redOff():
 	turnOff(redPin)
-	gpio.cleanup()
 
 def greenOn():
 	turnOn(greenPin)
-	gpio.cleanup()
 
 def greenOff():
 	turnOff(greenPin)
-	gpio.cleanup()
 
 def blueOn():
 	turnOn(bluePin)
-	gpio.cleanup()
 
 def blueOff():
 	turnOff(bluePin)
-	gpio.cleanup()
 
 def yellowOn():
 	turnOn(redPin)
 	turnOn(greenPin)
-	gpio.cleanup()
 
 def yellowOff():
 	turnOff(redPin)
 	turnOff(greenPin)
-	gpio.cleanup()
 
 def whiteOn():
 	turnOn(redPin)
 	turnOn(greenPin)
 	turnOn(bluePin)
-	gpio.cleanup()
 
 def whiteOff():
 	turnOff(redPin)
 	turnOff(greenPin)
 	turnOff(bluePin)
-	gpio.cleanup()
 
 def main():
 	while True:
@@ -89,4 +81,4 @@ def main():
 			print("Not a valid input")
 
 	return
-main()
+#main()
