@@ -18,8 +18,8 @@ sev_seg_f_pin = 6
 sev_seg_g_pin = 13
 
 #Car Detection Settings
-min_distance_cm = 60
-max_distance_cm = 100
+min_distance_cm = 20
+max_distance_cm = 150
 car_detection_threshold = 5
 car_stop_detecting_delay = 2
 num_spots_in_lot = 2

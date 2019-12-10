@@ -73,6 +73,7 @@ def allOff():
 	gOff()
 
 def zero():
+	allOff()
 	aOn()
 	bOn()
 	cOn()
@@ -82,10 +83,12 @@ def zero():
 	gOff()
 
 def one():
+	allOff()
 	bOn()
 	cOn()
 
 def two():
+	allOff()
 	aOn()
 	bOn()
 	gOn()
@@ -93,6 +96,7 @@ def two():
 	dOn()
 
 def three():
+	allOff()
 	aOn()
 	bOn()
 	gOn()
@@ -100,12 +104,14 @@ def three():
 	dOn()
 
 def four():
+	allOff()
 	bOn()
 	fOn()
 	gOn()
 	cOn()
 
 def five():
+	allOff()
 	aOn()
 	fOn()
 	gOn()
@@ -113,6 +119,7 @@ def five():
 	dOn()
 
 def six():
+	allOff()
 	aOn()
 	fOn()
 	eOn()
@@ -121,11 +128,13 @@ def six():
 	dOn()
 
 def seven():
+	allOff()
 	aOn()
 	bOn()
 	cOn()
 
 def eight():
+	allOff()
 	aOn()
 	bOn()
 	cOn()
@@ -135,6 +144,7 @@ def eight():
 	gOn()
 
 def nine():
+	allOff()
 	aOn()
 	bOn()
 	gOn()
@@ -206,4 +216,4 @@ def main():
 			print("Not a valid input")
 
 	return
-main()
+#main()
