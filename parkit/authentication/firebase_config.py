@@ -1,5 +1,3 @@
-
-
 FIREBASE_CONFIG = {
     "projectname": "parkit",
     "projectid": "parkit-zachandfaz",

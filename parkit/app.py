@@ -2,9 +2,8 @@ import pyrebase
 from flask import *
 import json
 
-from config import firebase as fbaseProject
+from authentication import firebase_config as fbaseProject
 from config.objects.user import UserInfo
-
 
 app = Flask(__name__)
 
@@ -12,6 +11,26 @@ firebase = pyrebase.initialize_app(fbaseProject.FIREBASE_CONFIG)
 auth = firebase.auth()
 db = firebase.database()
 
+
+@app.route('/')
+def main():
+    return render_template('index.html')
+
+@app.route('/signup',methods=['GET', 'POST'])
+def signup():
+
+    if request.method == 'POST':
+        email = request.form['name']
+        password = request.form['pass']
+        try:
+            aauth.create_user_with_email_and_password(email, password)
+            return redirect(url_for('login'))
+        except:
+            return render_template('signup.html', us=unsuccessful)
+
+        
+
+    return render_template('signup.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def home():
@@ -22,7 +41,6 @@ def home():
         password = request.form['pass']
         try:
             auth.sign_in_with_email_and_password(email, password)
-            flask.session['logged_in'] = True
             return redirect(url_for('parkingspot'))
         except:
             return render_template('login.html', us=unsuccessful)
@@ -31,7 +49,7 @@ def home():
 
 @app.route('/parkingspot', methods=['GET', 'POST'])
 def parkingspot():
-    if request.method == 'POST' and flask.session['logged_in'] == True:
+    if request.method == 'POST':
         if request.form['submit'] == 'add':
 
 
@@ -48,10 +66,16 @@ def parkingspot():
             db.child("car_info").remove()
         return render_template('parkingspot.html')
 
-    else: 
-        return redirect(url_for('home'))
-
     return render_template('parkingspot.html')
+
+@app.route('/availablespots', methods=['GET', 'POST'])
+def availablespots():
+    
+        todo = db.child("lot_data").get()
+        to = todo.val()
+        return render_template('availablespots.html', t=to.values())
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

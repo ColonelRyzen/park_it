@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Home</a>
+                    </li>
+                    <li role="presentation"><a href="/login">Sign In</a>
+                    </li>
+                    <li role="presentation"><a href="/signup">Sign Up</a>
+                    </li>
+                </ul>
+            </nav>
+            <img src="/static/images/Parkit_car_Icon.png" alt="Parkit_Icon.png"/ > 
+        </div>
+		<h1>Enter Car Details</h1>
+	</nav>
+	<div class="jumbotron">
+		<form class="form-group" action="/parkingspot" method="post">
+			<label for="firstname">First Name of the customer</label>
+            <input type="text" name="firstname" class="form-control"><br>
+			<label for="lastname">Last Name of the customer</label>
+            <input type="text" name="lastname" class="form-control"><br>
+			<label for="dob">DOB of Customer</label>
+            <input type="text" name="dob" class="form-control"><br>
+            <label for="make">Car Make</label>
+            <input type="text" name="make" class="form-control"><br>
+            <label for="model">Car Model</label>
+            <input type="text" name="model" class="form-control"><br>
+            <label for="year">Car year</label>
+            <input type="text" name="year" class="form-control"><br>
+            <label for="plate">License Plate Number</label>
+			<input type="text" name="plate" class="form-control"><br>
+			<label for="vin">VIN Number</label>
+			<input type="text" name="vin" class="form-control"><br>
+			<label for="color">Color</label>
+            <input type="text" name="color" class="form-control"><br>
+			<button class="btn btn-primary" type="submit" name="submit" value="add">Submit</button>
+			<button class="btn btn-danger" type="submit" name="submit" value="delete">Delete</button>
+		</form>
+		
+	</div>
+
+	<div class="container-fluid">
+		{% for l in t %}
+			<ul class="list-group">
+				<li class="list-group-item">
+					{{l}}
+				</li>
+			</ul>
+		{% endfor %}
+	</div>
+
+</body>
+</html>
