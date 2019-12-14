@@ -9,10 +9,8 @@ def update_sev_seg():
         spot_data = database_comms.get_document_data(config.num_free_spots)
         time.sleep(2)
 
-        #print(spot_data)
-
         #print("num_free_spots: ", spot_data["num_free_spots"])
-        num_free_spots = spot_data["num_free_spots"]
+        num_free_spots = spot_data
         print(num_free_spots)
         if num_free_spots == 0:
             seven_segment_ctrl.zero()

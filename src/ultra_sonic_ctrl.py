@@ -12,6 +12,8 @@ max_distance_cm = config.max_distance_cm
 min_distance_cm = config.min_distance_cm
 
 def get_distance():
+        pulse_start = 0
+        pulse_end = 0
         gpio.setmode(gpio.BOARD)
 
         print("Distance Measurement In Progress")
