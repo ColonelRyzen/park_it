@@ -49,3 +49,6 @@ def set_document_data(doc_name, data):
         ref.update(item)
     except:
         print("Failed to write data.")
+
+def get_lot_data():
+    return(ref.get())

@@ -2,9 +2,15 @@ import config
 import database_comms
 import time
 
+def count_spots_in_lot():
+    lot_data = database_comms.get_lot_data()
+    num_spots_in_lot = len(lot_data) - 1
+    return(num_spots_in_lot)
+
 def update_free_spot_count():
-    num_free_spots = config.num_spots_in_lot
-    for spot_idx in range(0, config.num_spots_in_lot):
+    num_spots_in_lot = count_spots_in_lot()
+    num_free_spots = num_spots_in_lot
+    for spot_idx in range(0, num_spots_in_lot):
         spot_data = database_comms.get_document_data(str(spot_idx))
         if spot_data['taken'] == True:
             if num_free_spots > 0:
