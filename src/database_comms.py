@@ -36,16 +36,16 @@ def set_document_data(doc_name, data):
     item_ref = ref.child(doc_name)
     item = item_ref.get()
 
-    if type(item) is dict:
-        item[doc_name] = data
-        try:
-            item_ref.update(item)
-        except:
-            print("Failed to write data.")
-    else:
-        item = ref.get()
-        item[doc_name] = data
-        try:
-            ref.update(item)
-        except:
-            print("Failed to write data.")
+    #if type(item) is dict:
+       # item[doc_name] = data
+        #try:
+        #    item_ref.update(item)
+        #except:
+            #print("Failed to write dict data.")
+    #else:
+    item = ref.get()
+    item[doc_name] = data
+    try:
+        ref.update(item)
+    except:
+        print("Failed to write data.")
