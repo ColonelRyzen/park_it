@@ -18,12 +18,13 @@ def main():
 
 @app.route('/signup',methods=['GET', 'POST'])
 def signup():
-
+    unsuccessful = 'Please check your credentials'
+    successful = 'Login successful'
     if request.method == 'POST':
         email = request.form['name']
         password = request.form['pass']
         try:
-            aauth.create_user_with_email_and_password(email, password)
+            auth.create_user_with_email_and_password(email, password)
             return redirect(url_for('login'))
         except:
             return render_template('signup.html', us=unsuccessful)
