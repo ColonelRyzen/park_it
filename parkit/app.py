@@ -16,6 +16,21 @@ db = firebase.database()
 def main():
     return render_template('index.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    unsuccessful = 'Please check your credentials'
+    successful = 'Login successful'
+    if request.method == 'POST':
+        email = request.form['name']
+        password = request.form['pass']
+        try:
+            auth.sign_in_with_email_and_password(email, password)
+            return redirect(url_for('parkingspot'))
+        except:
+            return render_template('login.html', us=unsuccessful)
+
+    return render_template('login.html')
+
 @app.route('/signup',methods=['GET', 'POST'])
 def signup():
     unsuccessful = 'Please check your credentials'
@@ -32,21 +47,6 @@ def signup():
         
 
     return render_template('signup.html')
-
-@app.route('/login', methods=['GET', 'POST'])
-def home():
-    unsuccessful = 'Please check your credentials'
-    successful = 'Login successful'
-    if request.method == 'POST':
-        email = request.form['name']
-        password = request.form['pass']
-        try:
-            auth.sign_in_with_email_and_password(email, password)
-            return redirect(url_for('parkingspot'))
-        except:
-            return render_template('login.html', us=unsuccessful)
-
-    return render_template('login.html')
 
 @app.route('/parkingspot', methods=['GET', 'POST'])
 def parkingspot():
@@ -74,7 +74,17 @@ def availablespots():
     
     todo = db.child("lot_data").get()
     to = todo.val()
+
+    if request.method == 'POST':
+        if request.form['reserve'] == 'reserve':
+            db.child("lot_data").child("0").update({"reserved": True})
+            todo = db.child("lot_data").get()
+            to = todo.val()
+            return render_template('availablespots.html', t=to.values())
+
     return render_template('availablespots.html', t=to.values())
+
+    
 
 
 

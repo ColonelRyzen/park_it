@@ -39,21 +39,21 @@
 			</div>
 		{% endif %}
 
-        <div class="container-fluid">
+        <form class="container-fluid" action="/availablespots" method = "post">
             {% for l in t %}
                 <ul class="list-group"><br>
                     <li class="list-group-item">
-                        Lot ID:  {{l.user_id}} <br>
+                        Spot ID:  {{l.spot_id}} <br>
                         Lot Color:  {{l.led_color}}<br>
                         Lot Reserved: {{l.reserved}}<br>
                         Lot Taken:  {{l.taken}}<br>
                         {% if l.reserved != True and l.taken != True %}
-                            <button class="btn btn-lg btn-primary btn-block" type="submit" value="reserve">Reserve</button>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" name="reserve" value="reserve">Reserve</button>
                         {% endif %}
                     </li>
                 </ul>
             {% endfor %}
-        </div>
+        </form>
 
     </div>
     <footer></footer> 
