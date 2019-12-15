@@ -39,6 +39,11 @@ def set_document_data(doc_name, data):
     except:
         print("Failed to write data.")
 
+################################################################################
+# Function Name: set_document_field
+#   Description: Writes data to trhe specified field in the spot ID entry specified
+#                in the config file.
+################################################################################
 def set_document_field(field_name, data):
     spot_ref = ref.child(config.spot_num)
     spot_data = spot_ref.get()
