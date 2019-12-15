@@ -35,7 +35,8 @@ def detect_car():
             if doc_data["taken"] == False:
                 doc_data["taken"] = car_detection
                 print("Writing that the spot is taken.")
-                database_comms.set_document_data(config.spot_num, doc_data)
+                #database_comms.set_document_data(config.spot_num, doc_data)
+                database_comms.set_document_field('taken', car_detection)
 
         # If the car leaves and is not detected for 'car_stop_detecting_delay' seconds then the spot is free.
         elif in_range_count <= config.car_detection_threshold - config.car_stop_detecting_delay:
@@ -46,7 +47,8 @@ def detect_car():
             if doc_data["taken"] == True:
                 doc_data["taken"] = car_detection
                 print("Writing that spot is free.")
-                database_comms.set_document_data(config.spot_num, doc_data)
+                #database_comms.set_document_data(config.spot_num, doc_data)
+                database_comms.set_document_field('taken', car_detection)
 
         # the count that the detection threshold is based on.
         print("count: ",in_range_count)

@@ -39,6 +39,15 @@ def set_document_data(doc_name, data):
     except:
         print("Failed to write data.")
 
+def set_document_field(field_name, data):
+    spot_ref = ref.child(config.spot_num)
+    spot_data = spot_ref.get()
+    spot_data[field_name] = data
+    try:
+        spot_ref.update(spot_data)
+    except:
+        print("Field data failed to write.")
+
 ################################################################################
 # Function Name: get_lot_data
 #   Description: Gets the data for the whole lot.
