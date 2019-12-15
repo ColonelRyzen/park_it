@@ -41,12 +41,12 @@
             {% for l in t %}
                 <ul class="list-group"><br>
                     <li class="list-group-item">
-                        Lot ID<br>
-                        {{l.led_color}}<br>
-                        {{l.reserved}}<br>
-                        {{l.taken}}<br>
+                        Lot ID:  {{l.user_id}} <br>
+                        Lot Color:  {{l.led_color}}<br>
+                        Lot Reserved: {{l.reserved}}<br>
+                        Lot Taken:  {{l.taken}}<br>
                         {% if l.reserved != True and l.taken != True %}
-                            <button class="btn btn-lg btn-primary btn-block" type="Reserve">Reserve</button>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" value="reserve">Reserve</button>
                         {% endif %}
                     </li>
                 </ul>

@@ -71,9 +71,9 @@ def parkingspot():
 @app.route('/availablespots', methods=['GET', 'POST'])
 def availablespots():
     
-        todo = db.child("lot_data").get()
-        to = todo.val()
-        return render_template('availablespots.html', t=to.values())
+    todo = db.child("lot_data").get()
+    to = todo.val()
+    return render_template('availablespots.html', t=to.values())
 
 
 
