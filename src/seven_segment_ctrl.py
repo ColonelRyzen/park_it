@@ -1,3 +1,6 @@
+# Hardware control file
+# This file controls the operation of the seven segment display
+
 import RPi.GPIO as gpio
 import config
 
@@ -151,6 +154,10 @@ def nine():
 	fOn()
 	cOn()
 
+################################################################################
+# Function Name: main
+#   Description: When enbaled, allows for direct testing of the seven segment display
+################################################################################
 def main():
 	while True:
 		cmd = input("-->")

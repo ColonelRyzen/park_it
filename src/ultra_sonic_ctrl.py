@@ -1,3 +1,6 @@
+# Hardware control file
+# This file controls the operation of the ultra sonic sensor
+
 import RPi.GPIO as gpio
 import time
 import config
@@ -11,6 +14,10 @@ ECHO = config.ultra_sonic_echo
 max_distance_cm = config.max_distance_cm
 min_distance_cm = config.min_distance_cm
 
+################################################################################
+# Function Name: get_distance
+#   Description: Sends a pulse for .0001 seconds and calculate the distance based on the pulse.
+################################################################################
 def get_distance():
         pulse_start = 0
         pulse_end = 0
@@ -46,6 +53,10 @@ def get_distance():
 
         return distance
 
+################################################################################
+# Function Name: object_in_range
+#   Description: Detect if the distance detected is within the specified distance
+################################################################################
 def object_in_range(min_distance, max_distance):
         car_in_range = False
         distance = get_distance()

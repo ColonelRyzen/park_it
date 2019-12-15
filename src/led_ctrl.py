@@ -1,3 +1,6 @@
+# Hardware control file
+# This file controls the operation of the RGB LED
+
 import RPi.GPIO as gpio
 import config
 
@@ -53,6 +56,10 @@ def whiteOff():
 	turnOff(greenPin)
 	turnOff(bluePin)
 
+################################################################################
+# Function Name: main
+#   Description: When enbaled, allows for direct testing of the LED.
+################################################################################
 def main():
 	while True:
 		cmd = input("-->")

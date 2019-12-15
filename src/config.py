@@ -22,16 +22,9 @@ min_distance_cm = 20
 max_distance_cm = 150
 car_detection_threshold = 5
 car_stop_detecting_delay = 2
-num_spots_in_lot = 1
 
-# spot Database config
-spot_database_name = "test_lot_0"
+#Lot Database config
 credentials_path = "parkit-zachandfaz-firebase-adminsdk-30ltr-452668633e.json"
 databaseURL = "https://parkit-zachandfaz.firebaseio.com/"
 spot_num = "0"
 num_free_spots = "num_free_spots"
-
-# Lots database config
-lot_database_name = "lots"
-max_num_spots = 2
-lot_id = 0

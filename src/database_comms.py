@@ -3,22 +3,19 @@ import config
 from firebase_admin import credentials
 from firebase_admin import db
 
-#def get_database_reference():
+# Setting up credentials and initializing database connection
 cred = credentials.Certificate(config.credentials_path)
 firebase_admin.initialize_app(cred, {'databaseURL': config.databaseURL})
 
+# Getting reference to the database
 ref = db.reference('lot_data')
-#    return(lot_ref)
 
+################################################################################
+# Function Name: get_document_data
+#   Description: Get data from database entry in the lot.
+#                Data is returned as a dictionary
+################################################################################
 def get_document_data(doc_name):
- #   lot_ref = get_database_reference()
-    #doc_ref = lot_ref.document(doc_name)
-    #try:
-        #doc = doc_ref.get()
-    #except:
-        #print(u'No such document!')
-
-    #return(doc.to_dict())
     item = {}
 
     spot_ref = ref.child(doc_name)
@@ -26,23 +23,15 @@ def get_document_data(doc_name):
         item = spot_ref.get()
     except:
         print('No such item!')
-    
+
     return(item)
 
-# All fields of the document must be filled in when writing to a document
+################################################################################
+# Function Name: set_document_data
+#   Description: Writes data back to the database at the specified entry.
+#                Data passed is a dictionary.
+################################################################################
 def set_document_data(doc_name, data):
-  #  lot_ref = get_database_reference()
-    #lot_ref.document(doc_name).set(data_dict)
-    item_ref = ref.child(doc_name)
-    item = item_ref.get()
-
-    #if type(item) is dict:
-       # item[doc_name] = data
-        #try:
-        #    item_ref.update(item)
-        #except:
-            #print("Failed to write dict data.")
-    #else:
     item = ref.get()
     item[doc_name] = data
     try:
@@ -50,5 +39,9 @@ def set_document_data(doc_name, data):
     except:
         print("Failed to write data.")
 
+################################################################################
+# Function Name: get_lot_data
+#   Description: Gets the data for the whole lot.
+################################################################################
 def get_lot_data():
     return(ref.get())

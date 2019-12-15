@@ -2,9 +2,15 @@ import config
 import seven_segment_ctrl
 import database_comms
 import time
+import update_free_spot_count
 
+################################################################################
+# Function Name: update_sev_seg
+#   Description: Checks the 'num_free_spots' entry in the lot table in the database.
+#                It displays the value of that entry
+################################################################################
 def update_sev_seg():
-    sev_seg_value = config.max_num_spots
+    sev_seg_value = 0
     while True:
         spot_data = database_comms.get_document_data(config.num_free_spots)
         time.sleep(2)
