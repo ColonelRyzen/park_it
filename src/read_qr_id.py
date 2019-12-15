@@ -34,7 +34,7 @@ def read_qr_codes():
     # Loop that gets a new frame every 2 seconds
     while True:
         frame = vs.read()
-        frame = imutils.resize(frame, width=400)
+        #frame = imutils.resize(frame, width=400)
 
         qr_codes = pyzbar.decode(frame)
         # loop through all detected QR codes in the frame
@@ -57,15 +57,17 @@ def read_qr_codes():
 
             # Get the spot data entry from the database
             spot_data = database_comms.get_document_data(config.spot_num)
+            print(spot_data['user_id'])
+            print(type(spot_data['user_id']))
 
             # Check if the spot is reserved and if the QR code data matches the 'user_id' value
             if spot_data['reserved'] == True:
-                if spot_data['user_id'] == qrdcodeData:
+                if spot_data['user_id'] == qrcodeData:
                     correct_car_in_reserved_spot = True
                     print("Correct car is spot.")
 
                     # If the 'correct_car' field is already true, don't write to the databse
-                    if spot_data['correct_car'] = False:
+                    if spot_data['correct_car'] == False:
                         spot_data['correct_car'] = correct_car_in_reserved_spot
                         database_comms.set_document_data(config.spot_num, spot_data)
                 else:
@@ -73,7 +75,7 @@ def read_qr_codes():
                     print("Wrong car in spot.")
 
                     # if the 'correct_car' field is already false, don't write to the database
-                    if spot_data['correct_car'] = True:
+                    if spot_data['correct_car'] == True:
                         spot_data['correct_car'] = correct_car_in_reserved_spot
                         database_comms.set_document_data(config.spot_num, spot_data)
 
@@ -84,7 +86,7 @@ def read_qr_codes():
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q'):
             break
-        time.sleep(2)
+        time.sleep(1)
 
     print("[INFO] cleaning up...")
     csv.close()
@@ -92,3 +94,4 @@ def read_qr_codes():
     vs.stop()
 
     return(correct_car_in_reserved_spot)
+read_qr_codes()
