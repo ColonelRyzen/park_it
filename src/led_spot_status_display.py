@@ -29,15 +29,12 @@ def update_led_status():
         reservation_status = spot_data["reserved"]
         if reservation_status == True and spot_status == False:
             spot_data["led_color"] = "yellow"
-            #database_comms.set_document_data(config.spot_num, spot_data)
             database_comms.set_document_field('led_color', "yellow")
         elif spot_status == True:
             spot_data["led_color"] = "red"
-            #database_comms.set_document_data(config.spot_num, spot_data)
             database_comms.set_document_field('led_color', "red")
         elif spot_status == False and reservation_status == False:
             spot_data["led_color"] = "green"
-            #database_comms.set_document_data(config.spot_num, spot_data)
             database_comms.set_document_field('led_color', "green")
 
 def main():
